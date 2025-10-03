@@ -7,14 +7,29 @@
 [Ll]ogs/
 [Mm]emoryCaptures/
 UserSettings/
+.sysinfo
+
+# Rider/VS/VSCode
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.sln
+*.user
+*.vsconfig
 
 # Android/Gradle build output
 .gradle/
 *.apk
 *.aab
+
 # Keystores (never commit these)
 *.keystore
 *.jks
+
+# Unity upgrade logs
+UpgradeLog*.htm
+UpgradeLog*.XML
 
 # OS/editor cruft
 .DS_Store
