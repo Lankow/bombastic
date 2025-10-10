@@ -12,6 +12,15 @@ public class Alien : MonoBehaviour
         transform.position = Vector3.MoveTowards(pos, target, speed * Time.deltaTime);
     }
 
+    void Start()
+    {
+        if(transform.position.x < 0)
+        {
+            var scale = transform.localScale;
+            transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
+        }
+    }
+
     private void OnMouseDown()
     {
         GameManager.instance.ScoreUp();
