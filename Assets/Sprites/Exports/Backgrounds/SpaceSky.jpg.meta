@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 25d66c3c8514f5546b50ac7fc707acfe
+guid: f5bf35a9f93165740997b5f377e14bea
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5290341095564424667
-    second: Kurvinox_0
+      213: -1955448553306655712
+    second: Background_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Kurvinox_0
+      name: Background_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 30
-        width: 96
-        height: 76
+        x: 0
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 52a4b329dcee496b0800000000000000
-      internalID: -5290341095564424667
+      spriteID: 024fa93b6e9dcd4e0800000000000000
+      internalID: -1955448553306655712
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Kurvinox_0: -5290341095564424667
+      Background_0: -1955448553306655712
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
