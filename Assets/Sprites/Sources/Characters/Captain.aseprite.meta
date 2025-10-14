@@ -125,7 +125,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Captain
     originalName: 
-    pivot: {x: 0.5121951, y: -0.4}
+    pivot: {x: 0.5121951, y: -0.10000001}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -162,8 +162,8 @@ ScriptedImporter:
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 43
-        y: 32
+        x: 27
+        y: 8
         width: 41
         height: 80
       spriteId: 89090109c9612cf4abe05f24b31379a1
@@ -185,5 +185,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 128, y: 128}
+  canvasSize: {x: 96, y: 96}
   previousTextureSize: {x: 64, y: 128}
