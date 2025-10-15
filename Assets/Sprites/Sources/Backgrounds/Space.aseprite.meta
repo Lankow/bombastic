@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 18f291693b6a5ff438675a75fe782f32
+guid: 8fc3e20eb68c2c348998ee01ebafd382
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -122,21 +122,51 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  animatedSpriteImportData: []
+  animatedSpriteImportData:
+  - name: Space
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 640
+      height: 180
+    spriteID: 5de2d082ac688c04c871c8e18dcb4333
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 2933275975
+      value0: 1144863360
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Logo
+    name: Space
     layerFlags: 0
     layerType: 0
     blendMode: 0
-    cells: []
+    cells:
+    - name: Space
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 0
+        y: 0
+        width: 640
+        height: 180
+      spriteId: 5de2d082ac688c04c871c8e18dcb4333
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -155,5 +185,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 128, y: 128}
-  previousTextureSize: {x: 0, y: 0}
+  canvasSize: {x: 640, y: 180}
+  previousTextureSize: {x: 1024, y: 256}
