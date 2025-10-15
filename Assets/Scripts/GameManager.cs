@@ -12,14 +12,12 @@ public class GameManager : MonoBehaviour
     int score = 0;
 
     public GameObject alien;
-    public GameObject menuUI;
     public List<Transform> spawnPoints;
-    public TextMeshProUGUI scoreText;
 
     public float spawnRate;
 
-    private const float MinVerticalPos = -1.85f;
-    private const float MaxVerticalPos = -0.8f;
+    private const float MinVerticalPos = -0.24f;
+    private const float MaxVerticalPos = 0.05f;
 
     bool gameStarted = false;
 
@@ -44,7 +42,6 @@ public class GameManager : MonoBehaviour
     public void ScoreUp()
     {
         score++;
-        scoreText.text = score.ToString();
         print(score);
     }
 
@@ -60,8 +57,6 @@ public class GameManager : MonoBehaviour
 
     public void GameStart()
     {
-        menuUI.SetActive(false);
-        scoreText.gameObject.SetActive(true);
         InvokeRepeating("SpawnAlien", 1f, spawnRate);
     }
 

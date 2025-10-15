@@ -125,7 +125,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Lizard
     originalName: 
-    pivot: {x: 0.4255319, y: -0.41891894}
+    pivot: {x: 0.49579835, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -133,8 +133,8 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 94
-      height: 74
+      width: 119
+      height: 91
     spriteID: 123825dcadb462040a360576610a4118
     spriteBone: []
     spriteOutline: []
@@ -162,10 +162,10 @@ ScriptedImporter:
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 24
-        y: 31
-        width: 94
-        height: 74
+        x: 5
+        y: 0
+        width: 119
+        height: 91
       spriteId: 123825dcadb462040a360576610a4118
     linkedCells: []
     parentIndex: -1
