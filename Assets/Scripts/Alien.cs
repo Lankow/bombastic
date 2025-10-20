@@ -23,7 +23,7 @@ public class Alien : MonoBehaviour
 
     private void OnMouseDown()
     {
-        GameManager.instance.ScoreUp();
+        GameController.instance.ScoreUp();
         Destroy(gameObject);
     }
 }

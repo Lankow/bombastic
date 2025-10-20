@@ -1,13 +1,9 @@
-using NUnit.Framework;
 using System.Collections.Generic;
-using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class GameManager : MonoBehaviour
+public class GameController : MonoBehaviour
 {
-    public static GameManager instance;
+    public static GameController instance;
 
     int score = 0;
 
@@ -19,8 +15,6 @@ public class GameManager : MonoBehaviour
     private const float MinVerticalPos = -0.24f;
     private const float MaxVerticalPos = 0.05f;
 
-    bool gameStarted = false;
-
     private void Awake()
     {
         instance = this;
@@ -28,15 +22,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        GameStart();
     }
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0) && !gameStarted)
-        {
-            gameStarted = true;
-            GameStart();
-        }
     }
 
     public void ScoreUp()
