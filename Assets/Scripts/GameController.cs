@@ -5,7 +5,7 @@ public class GameController : MonoBehaviour
 {
     public static GameController instance;
 
-    int score = 0;
+    public int score = 0;
 
     public GameObject alien;
     public List<Transform> spawnPoints;
