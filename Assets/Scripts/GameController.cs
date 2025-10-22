@@ -5,8 +5,6 @@ public class GameController : MonoBehaviour
 {
     public static GameController instance;
 
-    public int score = 0;
-
     public GameObject alien;
     public List<Transform> spawnPoints;
 
@@ -14,6 +12,8 @@ public class GameController : MonoBehaviour
 
     private const float MinVerticalPos = -0.24f;
     private const float MaxVerticalPos = 0.05f;
+    private int score = 0;
+
 
     private void Awake()
     {
@@ -27,6 +27,11 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+    }
+
+    public int GetScore()
+    {
+        return score;
     }
 
     public void ScoreUp()

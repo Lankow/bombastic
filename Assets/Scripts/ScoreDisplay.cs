@@ -21,7 +21,9 @@ public class ScoreDisplay : MonoBehaviour
 
     void Update()
     {
-        int s = 111;
+        if(GameController.instance == null) return;
+
+        int s = GameController.instance.GetScore();
         if (s != lastScore) { Render(s); lastScore = s; }
     }
 
@@ -43,7 +45,6 @@ public class ScoreDisplay : MonoBehaviour
         {
             int d = txt[i] - '0';
             active[i].sprite = numberSprites[d];
-            active[i].SetNativeSize();
         }
     }
 }
