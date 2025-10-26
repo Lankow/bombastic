@@ -4,6 +4,11 @@ public class Alien : MonoBehaviour
 {
     public float speed = 2f;
 
+    public void Init()
+    {
+
+    }
+
     void Update()
     {
         var pos = transform.position;
@@ -11,6 +16,8 @@ public class Alien : MonoBehaviour
 
         transform.position = Vector3.MoveTowards(pos, target, speed * Time.deltaTime);
     }
+
+
 
     void Start()
     {

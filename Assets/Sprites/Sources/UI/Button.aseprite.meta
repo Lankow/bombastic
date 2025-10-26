@@ -125,7 +125,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Button
     originalName: 
-    pivot: {x: 0.5, y: -0.23809524}
+    pivot: {x: 0.5, y: -0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -134,7 +134,7 @@ ScriptedImporter:
       x: 4
       y: 4
       width: 58
-      height: 21
+      height: 16
     spriteID: 4046e352ec82cdc4e8dab71862bce613
     spriteBone: []
     spriteOutline: []
@@ -163,9 +163,9 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 51
-        y: 5
+        y: 8
         width: 58
-        height: 21
+        height: 16
       spriteId: 4046e352ec82cdc4e8dab71862bce613
     linkedCells: []
     parentIndex: -1

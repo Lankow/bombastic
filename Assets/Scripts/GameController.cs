@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     private const float MaxVerticalPos = 0.05f;
     private int score = 0;
 
+    public int playerHP = 3;
 
     private void Awake()
     {
