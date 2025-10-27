@@ -2,7 +2,15 @@ using UnityEngine;
 
 public class Alien : MonoBehaviour
 {
+    GameController controller;
+    Vector2 moveDir;
     public float speed = 2f;
+    float centerX;
+
+    public bool FromLeft { get; private set; }
+
+    [Header("Stats")]
+    public Vector2 speedRange = new Vector2(1.2f, 2.6f);
 
     public void Init()
     {
