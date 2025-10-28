@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     private const float MinVerticalPos = -0.24f;
     private const float MaxVerticalPos = 0.05f;
     private int score = 0;
+    public float centerX = 0f;
 
     public int playerHP = 3;
 

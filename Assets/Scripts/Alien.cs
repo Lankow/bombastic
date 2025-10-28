@@ -12,9 +12,13 @@ public class Alien : MonoBehaviour
     [Header("Stats")]
     public Vector2 speedRange = new Vector2(1.2f, 2.6f);
 
-    public void Init()
+    public void Init(GameController controller, Vector2 direction, float centerX)
     {
-
+        this.controller = controller;
+        this.moveDir = direction.normalized;
+        this.centerX = centerX;
+        this.FromLeft = direction.x > 0;
+        speed = Random.Range(speedRange.x, speedRange.y);
     }
 
     void Update()
