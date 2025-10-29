@@ -7,7 +7,8 @@ public class AlienSpawner : MonoBehaviour
     public Camera cam;
 
     [Header("Spawn Settings")]
-    public float groundY = -2.5f;
+    public float minY = -0.20f;
+    public float maxY = 0.04f;
     public float edgePadding = 0.5f;
     public float minSpawnInterval = 0.4f;
     public float maxSpawnInterval = 1.6f;
@@ -41,6 +42,7 @@ public class AlienSpawner : MonoBehaviour
     {
         Vector3 leftWorld = cam.ViewportToWorldPoint(new Vector3(0, 0.5f, -cam.transform.position.z));
         Vector3 rightWorld = cam.ViewportToWorldPoint(new Vector3(1, 0.5f, -cam.transform.position.z));
+        var groundY = Random.Range(minY, maxY);
 
         leftPos = new Vector3(leftWorld.x - edgePadding, groundY, 0);
         rightPos = new Vector3(rightWorld.x + edgePadding, groundY, 0);
@@ -55,8 +57,11 @@ public class AlienSpawner : MonoBehaviour
 
     void SpawnAlien()
     {
-        bool fromLeft = Random.value < 0.5f;
+        bool fromLeft = Random.value < 0.5f;        
         Vector3 pos = fromLeft ? leftPos : rightPos;
+
+        var groundY = Random.Range(minY, maxY);
+        pos.y = groundY;
 
         GameObject go = Instantiate(alienPrefab, pos, Quaternion.identity);
         Alien a = go.GetComponent<Alien>();

@@ -19,30 +19,37 @@ public class Alien : MonoBehaviour
         this.centerX = centerX;
         this.FromLeft = direction.x > 0;
         speed = Random.Range(speedRange.x, speedRange.y);
-    }
 
-    void Update()
-    {
-        var pos = transform.position;
-        var target = new Vector3(0f, pos.y, pos.z);
-
-        transform.position = Vector3.MoveTowards(pos, target, speed * Time.deltaTime);
-    }
-
-
-
-    void Start()
-    {
-        if(transform.position.x < 0)
+        if (FromLeft)
         {
             var scale = transform.localScale;
             transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
         }
+
+        controller.RegisterAlien(this);
     }
 
-    private void OnMouseDown()
+    void Update()
     {
-        GameController.instance.ScoreUp();
+        transform.Translate(moveDir * speed * Time.deltaTime);
+
+        if ((FromLeft && transform.position.x >= centerX) ||
+            (!FromLeft && transform.position.x <= centerX))
+        {
+            controller.OnAlienBreach(this);
+            Destroy(gameObject);
+        }
+    }
+
+    public void Kill()
+    {
+        controller.UnregisterAlien(this);
         Destroy(gameObject);
+    }
+
+    void OnDestroy()
+    {
+        if (controller)
+            controller.UnregisterAlien(this);
     }
 }
