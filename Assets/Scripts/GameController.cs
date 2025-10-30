@@ -1,16 +1,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
 
     public GameObject alien;
+    public GameObject captain;
+
     public List<Transform> spawnPoints;
 
-    public float centerX = 0f;
     public float shootCooldown = 0.15f;
     public float spawnRate;
+    public float centerX = 0f;
 
     public int playerHP = 3;
 
@@ -24,10 +27,6 @@ public class GameController : MonoBehaviour
         instance = this;
     }
 
-    void Start()
-    {
-    }
-
     void Update()
     {
         HandleInput();
@@ -37,33 +36,29 @@ public class GameController : MonoBehaviour
     {
         if (Time.time < nextShootAt) return;
 
-        bool clicked = false;
-        Vector2 pos = Vector2.zero;
-
 #if UNITY_EDITOR
         if (Input.GetMouseButtonDown(0))
         {
-            clicked = true;
-            pos = Input.mousePosition;
+            nextShootAt = Time.time + shootCooldown;
+            FireOnSide(Input.mousePosition);
+            return;
         }
 #endif
-
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            clicked = true;
-            pos = Input.GetTouch(0).position;
+            nextShootAt = Time.time + shootCooldown;
+            FireOnSide(Input.GetTouch(0).position);
         }
+    }
 
-        if (!clicked) return;
+    void FireOnSide(Vector2 screenPos)
+    {
+        bool leftSide = screenPos.x < Screen.width * 0.5f;
+        HandleCaptainFacing(leftSide);
 
-        nextShootAt = Time.time + shootCooldown;
-
-        bool leftSide = pos.x < Screen.width / 2f;
         Alien target = GetTargetOnSide(leftSide);
-
         if (target != null)
         {
-
             target.Kill();
             ScoreUp();
         }
@@ -90,6 +85,15 @@ public class GameController : MonoBehaviour
             }
         }
         return target;
+    }
+
+    void HandleCaptainFacing(bool clickedLeft)
+    {
+        if (!captain) return;
+        var s = captain.transform.localScale;
+        float dir = s.x;
+        if ((dir < 0 && !clickedLeft) || (dir > 0 && clickedLeft))
+            captain.transform.localScale = new Vector3(-dir, s.y, s.z);
     }
 
     public void RegisterAlien(Alien a)
@@ -120,7 +124,7 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
-        SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public int GetScore() => score;

@@ -65,6 +65,6 @@ public class AlienSpawner : MonoBehaviour
 
         GameObject go = Instantiate(alienPrefab, pos, Quaternion.identity);
         Alien a = go.GetComponent<Alien>();
-        a.Init(GameController.instance, fromLeft ? Vector2.right : Vector2.left, GameController.instance.centerX);
+        a.Init(GameController.instance, fromLeft);
     }
 }

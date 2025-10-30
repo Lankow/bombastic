@@ -2,54 +2,53 @@ using UnityEngine;
 
 public class Alien : MonoBehaviour
 {
-    GameController controller;
-    Vector2 moveDir;
-    public float speed = 2f;
-    float centerX;
-
+    public Vector2 speedRange = new Vector2(1.2f, 2.6f);
     public bool FromLeft { get; private set; }
 
-    [Header("Stats")]
-    public Vector2 speedRange = new Vector2(1.2f, 2.6f);
+    float speed;
+    Vector2 moveDir;
 
-    public void Init(GameController controller, Vector2 direction, float centerX)
+    GameController gc;
+
+    public void Init(GameController controller, bool fromLeft)
     {
-        this.controller = controller;
-        this.moveDir = direction.normalized;
-        this.centerX = centerX;
-        this.FromLeft = direction.x > 0;
+        gc = controller;
+        FromLeft = fromLeft;
+        moveDir = fromLeft ? Vector2.right : Vector2.left;
         speed = Random.Range(speedRange.x, speedRange.y);
+        gc.RegisterAlien(this);
 
         if (FromLeft)
         {
             var scale = transform.localScale;
             transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
         }
-
-        controller.RegisterAlien(this);
     }
 
     void Update()
     {
         transform.Translate(moveDir * speed * Time.deltaTime);
+    }
 
-        if ((FromLeft && transform.position.x >= centerX) ||
-            (!FromLeft && transform.position.x <= centerX))
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        Debug.Log("Alien collided with: " + col.gameObject.name);
+
+        if (col.CompareTag("Captain"))
         {
-            controller.OnAlienBreach(this);
+            gc.OnAlienBreach(this);
             Destroy(gameObject);
         }
     }
 
     public void Kill()
     {
-        controller.UnregisterAlien(this);
+        gc.UnregisterAlien(this);
         Destroy(gameObject);
     }
 
     void OnDestroy()
     {
-        if (controller)
-            controller.UnregisterAlien(this);
+        if (gc) gc.UnregisterAlien(this);
     }
 }
