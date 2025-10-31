@@ -9,6 +9,7 @@ public class Alien : MonoBehaviour
     Vector2 moveDir;
 
     GameController gc;
+    public int alienHP;
 
     public void Init(GameController controller, bool fromLeft)
     {
@@ -16,8 +17,9 @@ public class Alien : MonoBehaviour
         FromLeft = fromLeft;
         moveDir = fromLeft ? Vector2.right : Vector2.left;
         speed = Random.Range(speedRange.x, speedRange.y);
-        gc.RegisterAlien(this);
+        alienHP = Random.Range(1, 3);
 
+        gc.RegisterAlien(this);
         if (FromLeft)
         {
             var scale = transform.localScale;
@@ -41,10 +43,16 @@ public class Alien : MonoBehaviour
         }
     }
 
-    public void Kill()
+    public void HitByProjectile()
     {
-        gc.UnregisterAlien(this);
+        Debug.Log($"Alien hit by projectile. Alien HP: {alienHP}.");
+        if (--alienHP <= 0) Kill();
+    }
+
+    private void Kill()
+    {
         Destroy(gameObject);
+        gc.ScoreUp();
     }
 
     void OnDestroy()

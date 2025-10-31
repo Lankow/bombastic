@@ -59,8 +59,7 @@ public class GameController : MonoBehaviour
         Alien target = GetTargetOnSide(leftSide);
         if (target != null)
         {
-            target.Kill();
-            ScoreUp();
+            target.HitByProjectile();
         }
     }
 
