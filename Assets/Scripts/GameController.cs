@@ -127,4 +127,5 @@ public class GameController : MonoBehaviour
     }
 
     public int GetScore() => score;
+    public int GetPlayerHp() => playerHP;
 }
